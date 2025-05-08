@@ -4,7 +4,7 @@ class Point:
     __y = int
 
     #Phuong phap ghi de (constructor Method Overloadoadingg)
-    def __init__ (self,x=0,y=00):
+    def __init__ (self,x=0,y=1):
         self.__x = x
         self.__y = y
 
