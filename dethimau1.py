@@ -18,7 +18,7 @@ class TuLanh:
         self.__gia = tl.__gia
 
     def nhapThongTin(self):
-        self.__nhanhieu = input("Nhập nhãn hiệu: ").strip()
+        self.__nhanhieu = input("Nhập nhãn hiệu: ").strip() #.strip() loại bỏ khoảng trắng ở đầu và cuối của 1 chuỗi
         self.__maso = input("Nhập mã số: ").strip()
         self.__nuocsx = input("Nhập nước sản xuất: ").strip()
         self.__tkdien = input("Tiết kiệm điện (Có/Không): ").strip().lower() == "Có"
@@ -74,7 +74,7 @@ class C002454:
             ds_tulanh.append(tl)
 
         print("\nDanh sách tủ lạnh theo thứ tự ngược lại:")
-        for tl in reversed(ds_tulanh):
+        for tl in reversed(ds_tulanh): #reversed để duyệt danh sách theo thức tự đảo ngược
             tl.hienThi()
 
     def testCase3():
@@ -105,8 +105,8 @@ class C002454:
             ds_tulanh.append(tl)
 
         # Lưu danh sách vào file JSON
-        with open("DsTuLanh.json", "w", encoding = "utf-8") as f:
-            json.dump([{
+        with open("DsTuLanh.json", "w", encoding = "utf-8") as f: #mở flie DsTuLanh.json với chế độ ghi (w) và đảm bảo mã hóa UTF-8 hỗ trợ tiếng Việt
+            json.dump([{ #ghi dữ liệu vào file json
                 "nhanhieu": tl.layNhanHieu(),
                 "maso": tl._TuLanh__maso,
                 "nuocsx": tl._TuLanh__nuocsx,
@@ -114,7 +114,9 @@ class C002454:
                 "dungtich": tl._TuLanh__dungtich,
                 "gia": tl.layGia()
             } 
-            for tl in ds_tulanh], f, ensure_ascii = False, indent = 4)
+            for tl in ds_tulanh], f, ensure_ascii = False, indent = 4) 
+            '''ensure_accii = False đảm bảo các kí tự ghi bằng Tiếng Việt không mã hóa sang accii
+            indent = 4 định dạng json thụt lề 4 khoảng trắng cho dễ đọc'''
         print("\nDanh sách tủ lạnh đã được lưu vào DsTuLanh.json")
 
     def testCase5():
